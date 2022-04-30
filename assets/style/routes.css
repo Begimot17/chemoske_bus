@@ -1,0 +1,57 @@
+button[name='routes']{
+        background-color: #EE930B;
+    }
+.item-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+.item{
+
+    background-color: white;
+}
+
+.item .item-main {
+    text-align: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.item .info {
+    text-align: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.item .info span {
+    border-radius: 5px;
+    background-color: #DFB727;
+    padding: 5px;
+}
+
+.item .item-main .control {
+    border-radius: 5px;
+    background-color: #DFB727;
+    padding: 15px;
+}
+
+.item .item-title {
+    border-radius: 5px;
+    background-color: #DFB727;
+    padding: 1px;
+    margin: 5px 0;
+}
+
+.item-img {
+    width: 16em;
+    height: 9em;
+}

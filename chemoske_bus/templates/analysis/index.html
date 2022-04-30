@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% block title %}Анализ{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\analysis.css' %}>
+    <script>
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Год', 'Россия', 'США'],
+                ['1860', 1.3, 70],
+                ['1885', 2000, 3120],
+                ['1901', 12170, 9920]
+            ]);
+            var options = {
+                title: 'Добыча нефти',
+                hAxis: {title: 'Год'},
+                vAxis: {title: 'Тыс. тонн'}
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('oil1'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Год', 'Россия', 'США'],
+                ['1860', 1.3, 70],
+                ['1885', 2000, 3120],
+                ['1901', 12170, 9920]
+            ]);
+            var options = {
+                title: 'Добыча нефти',
+                hAxis: {title: 'Год'},
+                vAxis: {title: 'Тыс. тонн'}
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('oil2'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Год', 'Россия', 'США'],
+                ['1860', 1.3, 70],
+                ['1885', 2000, 3120],
+                ['1901', 12170, 9920]
+            ]);
+            var options = {
+                title: 'Добыча нефти',
+                hAxis: {title: 'Год'},
+                vAxis: {title: 'Тыс. тонн'}
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('oil3'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Год', 'Россия', 'США'],
+                ['1860', 1.3, 70],
+                ['1885', 2000, 3120],
+                ['1901', 12170, 9920]
+            ]);
+            var options = {
+                title: 'Добыча нефти',
+                hAxis: {title: 'Год'},
+                vAxis: {title: 'Тыс. тонн'}
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('oil4'));
+            chart.draw(data, options);
+        }
+    </script>
+    <div class="item-list">
+        <div>
+            <h2>Таблица</h2>
+            <div class="diag" id="oil1"></div>
+        </div>
+        <div>
+            <h2>Таблица</h2>
+            <div class="diag" id="oil2"></div>
+        </div>
+        <div>
+            <h2>Таблица</h2>
+            <div class="diag" id="oil3"></div>
+        </div>
+        <div>
+            <h2>Таблица</h2>
+            <div class="diag" id="oil4"></div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block title %}Контроль{% endblock %}
+{% block content %} {% load static %}
+<link rel="stylesheet" href={% static 'style\control.css' %}>
+    <div class="item-list">
+        <div class="info">
+                <span>Рейс</span>
+                <span>Занятые места</span>
+                <span>Свободные места</span>
+                <span>Время</span>
+                <span>Водитель</span>
+        </div>
+        <div class="full-info">
+            <div>
+                <div><span>Рейс:12421412442145</span></div>
+                <div><span>Место нахождения:Полтава Украина ул Куйбышева</span></div>
+                <div><span>Время КПП:12:12:13 02.10.2021</span></div>
+
+            </div>
+
+        </div>
+        <div class="autobus">
+      <div class="str">
+        <div><button class="num big"></button></div>
+        <div>
+          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button></div>
+          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button></div>
+        </div>
+      </div>
+      <div class="str">
+        <div><button class="num big"></button></div>
+        <div>
+          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button></div>
+          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button><button class="num"></button><button
+              class="num"></button><button class="num"></button></div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    <table>
+      <thead>
+        <th>№</th>
+        <th>Назва</th>
+        <th>Номер</th>
+        <th>Водій №1</th>
+        <th>Водій №2</th>
+        <th>Кілометраж</th>
+        <th>Кількість виконаних рейсів</th>
+        <th>Дата наступного тех огляду</th>
+        <th>Дата останього тех огляду</th>
+        <th>Нинішній рейс</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+      </tbody>
+    </table>
+
+{% endblock %}

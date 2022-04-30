@@ -1,0 +1,51 @@
+button[name='control']{
+        background-color: #EE930B;
+    }
+.num{
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    background-color: green;
+}
+.big{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+}
+.str{
+    display: flex;
+}
+.autobus{
+    border-radius: 10%;
+    background-color: #DFB727;
+}
+.item-list {
+            display: grid;
+            grid-template-columns: 2fr 1fr 3fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            margin: 5px 0;
+        }
+.item-list .info{
+            text-align: center;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+        }
+.item-list .full-info{
+            text-align: center;
+            align-items: center;
+            background-color: #DFB727;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 15px;
+        }
+.item-list .info span{
+            border-radius: 5px;
+            background-color: #DFB727;
+            padding: 15px;
+        }

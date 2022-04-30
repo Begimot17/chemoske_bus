@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+}
+img.logo{
+    width: 100px;
+    height: 100px;
+}
+.nav-title {
+    font-family: 'Lobster Bold';
+    font-size: 52px;
+    margin: auto;
+}
+.nav-1{
+    height: 100px;
+    grid-template-columns: 1fr 9fr ;
+    display: grid;
+    background-color: #DFB727;
+}
+.nav-2{
+    grid-template-columns: 3fr 17fr 4fr;
+    display: grid;
+    background-color: black;
+    padding: 10px;
+}
+.nav-2>div{
+    display: flex;
+    align-items:center;
+}
+.main{
+    display: grid;
+}
+.action{
+    margin: 10px;
+}
+.right{
+    margin-left: auto;
+}
+button.view{
+    width: 100px;
+    height: 100px;
+}
+button.add-btn{
+    width: 150px;
+}
+input{
+    margin-right: 10px;
+    width: 400px;
+    height: 50px;
+    background-color: #DFB727;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI Bold', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
+button{
+
+    margin-right: 10px;
+    width: 100px;
+    height: 50px;
+    background-color: #DFB727;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI Bold', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
+button:hover{
+    background-color: #EE930B;
+}
+table {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+
+table td {
+    text-align: center;
+    border: 1px solid #dddddd;
+    padding: 5px;
+}

@@ -1,0 +1,17 @@
+button[name='analysis']{
+        background-color: #EE930B;
+    }
+.item-list {
+    text-align: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+.item-list h2{
+    border-bottom: black solid 5px;
+}
+.diag{
+    height: 300px;
+}

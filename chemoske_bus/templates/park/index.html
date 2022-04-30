@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block title %}Автопарк{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\park.css' %}>
+    <div class="action right">
+      <button class="add-btn btn-right">Додати строку</button>
+    </div>
+
+    <table>
+      <thead>
+        <th>№</th>
+        <th>Назва</th>
+        <th>Номер</th>
+        <th>Водій №1</th>
+        <th>Водій №2</th>
+        <th>Кілометраж</th>
+        <th>Кількість виконаних рейсів</th>
+        <th>Дата наступного тех огляду</th>
+        <th>Дата останього тех огляду</th>
+        <th>Нинішній рейс</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
