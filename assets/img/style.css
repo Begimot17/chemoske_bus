@@ -77,24 +77,3 @@ table td {
     border: 1px solid #dddddd;
     padding: 5px;
 }
-.num{
-    border-radius: 100%;
-    width: 25px;
-    height: 25px;
-    background-color: green;
-}
-.big{
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    background-color: gray;
-}
-.str{
-    margin: 20px 10px;
-    display: flex;
-}
-.autobus{
-    margin: 20px 20px 0px auto;
-    border-radius: 10%;
-    background-color: #DFB727;
-}
