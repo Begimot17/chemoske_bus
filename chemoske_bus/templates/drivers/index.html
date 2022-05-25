@@ -2,7 +2,8 @@
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\drivers.css' %}>
     <div class="action right">
-      <button class="add-btn btn-right">Додати строку</button>
+        <a href={% url 'drivers:add' %}><button class="add-btn btn-right">Додати строку</button></a>
+
     </div>
 
     <table>

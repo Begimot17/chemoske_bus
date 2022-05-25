@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %}Водители{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\drivers.css' %}>
+    <form action={% url 'drivers:add' %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Добавить водителя</h3>
+        <div class="inputs">
+            <div><input class="form-control item" type="text" name="username" placeholder="Имя" required>
+                <input class="form-control item" type="text" name="username" placeholder="Категория прав" required>
+                <input class="form-control item" type="text" name="username" placeholder="Штрафы" required>
+                <input class="form-control item" type="text" name="username" placeholder="Название автобуса" required>
+            </div>
+            <div><input class="form-control item" type="text" name="username" placeholder="Зарплата" required>
+                <input class="form-control item" type="text" name="username" placeholder="Степень загруженности"
+                       required>
+                <input class="form-control item" type="text" name="username" placeholder="Степень надёжности" required>
+            </div>
+        </div>
+        <button type="submit">Добавить</button>
+
+    </form>
+{% endblock %}

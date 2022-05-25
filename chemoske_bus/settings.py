@@ -35,6 +35,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'authorize.apps.AuthorizeConfig',
+    'analysis.apps.AnalysisConfig',
+    'control.apps.ControlConfig',
+    'drivers.apps.DriversConfig',
+    'flights.apps.FlightsConfig',
+    'park.apps.ParkConfig',
+    'routes.apps.RoutesConfig',
+    'tickets.apps.TicketsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
