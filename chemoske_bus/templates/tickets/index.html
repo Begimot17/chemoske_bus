@@ -8,53 +8,34 @@
     <table>
       <thead>
         <th>№</th>
-        <th>Назва</th>
-        <th>Номер</th>
-        <th>Водій №1</th>
-        <th>Водій №2</th>
-        <th>Кілометраж</th>
-        <th>Кількість виконаних рейсів</th>
-        <th>Дата наступного тех огляду</th>
-        <th>Дата останього тех огляду</th>
-        <th>Нинішній рейс</th>
+        <th>ФІО клієнта</th>
+        <th>Місце квитка у салоні</th>
+        <th>ID загран паспорта</th>
+        <th>Контактна інформація</th>
+        <th>Назва рейсу квитка</th>
+        <th>Час початку рейсу</th>
+        <th>Час закінченя рейсу</th>
+        <th>Автобус</th>
+        <th>Вартість</th>
+        <th>Степінь  комфорту</th>
+        <th>Кількість проходження митних КПП</th>
       </thead>
       <tbody>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
+         {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.id }}</td>
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ ticket.num_seat }}</td>
+                    <td>{{ ticket.contact_info }}</td>
+                    <td>{{ ticket.trip }}</td>
+                    <td>{{ ticket.fleet }}</td>
+                    <td>{{ ticket.date_of_next }}</td>
+                    <td>{{ ticket.date_of_last }}</td>
+                    <td>{{ ticket.bus }}</td>
+                    <td>{{ ticket.price }}</td>
+                    <td>{{ ticket.current_flight }}</td>
+                </tr>
+            {% endfor %}
       </tbody>
     </table>
 {% endblock %}

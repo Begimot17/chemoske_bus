@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block title %}Маршруты{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\routes.css' %}>
+    <form action={% url 'routes:reg' %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Добавить маршрут</h3>
+        <div class="inputs">
+            <div>
+                <input class="form-control item" type="text" name="photo" placeholder="Url фото">
+                <input class="form-control item" type="text" name="name" placeholder="Назва" required>
+                <select  class="form-control item" name="arrival" id="">
+                    {% for place in places %}
+                        <option value="{{ place.id }}">{{ place.name }}</option>
+                    {% endfor %}
+                </select>
+                <select  class="form-control item" name="departure" id="">
+                    {% for place in places %}
+                        <option value="{{ place.id }}">{{ place.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button type="submit">Добавить</button>
+
+    </form>
+{% endblock %}

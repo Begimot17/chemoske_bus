@@ -1,20 +1,24 @@
 {% extends 'base.html' %} {% block title %}Водители{% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\drivers.css' %}>
-    <form action={% url 'drivers:add' %} method='POST'>
+    <form action={% url 'drivers:reg' %} method='POST'>
         {% csrf_token %}
         <div></div>
         <h3>Добавить водителя</h3>
         <div class="inputs">
-            <div><input class="form-control item" type="text" name="username" placeholder="Имя" required>
-                <input class="form-control item" type="text" name="username" placeholder="Категория прав" required>
-                <input class="form-control item" type="text" name="username" placeholder="Штрафы" required>
-                <input class="form-control item" type="text" name="username" placeholder="Название автобуса" required>
+            <div><input class="form-control item" type="text" name="name" placeholder="Имя" required>
+                <input class="form-control item" type="text" name="category" placeholder="Категория прав" required>
+                <input class="form-control item" type="text" name="experience" placeholder="Штрафы" required>
+                <select  class="form-control item" name="bus" id="">
+                    {% for bus in buses %}
+                        <option value="{{ bus.id }}">{{ bus.name }}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div><input class="form-control item" type="text" name="username" placeholder="Зарплата" required>
-                <input class="form-control item" type="text" name="username" placeholder="Степень загруженности"
+            <div><input class="form-control item" type="text" name="salary" placeholder="Зарплата" required>
+                <input class="form-control item" type="text" name="degree_of_cong" placeholder="Степень загруженности"
                        required>
-                <input class="form-control item" type="text" name="username" placeholder="Степень надёжности" required>
+                <input class="form-control item" type="text" name="degree_of_reliab" placeholder="Степень надёжности" required>
             </div>
         </div>
         <button type="submit">Добавить</button>

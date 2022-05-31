@@ -9,53 +9,31 @@
     <table>
       <thead>
         <th>№</th>
-        <th>Назва</th>
-        <th>Номер</th>
-        <th>Водій №1</th>
-        <th>Водій №2</th>
-        <th>Кілометраж</th>
+        <th>ФІО</th>
+        <th>Категорія</th>
+        <th>Стаж</th>
+        <th>Кількість штрафів</th>
         <th>Кількість виконаних рейсів</th>
-        <th>Дата наступного тех огляду</th>
-        <th>Дата останього тех огляду</th>
-        <th>Нинішній рейс</th>
+        <th>Автобус</th>
+        <th>ЗП</th>
+        <th>Степінь завантаженості</th>
+        <th>Степінь надійності</th>
       </thead>
       <tbody>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
+        {% for driver in drivers %}
+                <tr>
+                    <td>{{ driver.id }}</td>
+                    <td>{{ driver.name }}</td>
+                    <td>{{ driver.category }}</td>
+                    <td>{{ driver.experience }}</td>
+                    <td>{{ driver.num_of_fines }}</td>
+                    <td>{{ driver.num_of_flights }}</td>
+                    <td>{{ driver.bus.name }}</td>
+                    <td>{{ driver.salary }}</td>
+                    <td>{{ driver.degree_of_cong }}</td>
+                    <td>{{ driver.degree_of_reliab }}</td>
+                </tr>
+            {% endfor %}
       </tbody>
     </table>
 {% endblock %}

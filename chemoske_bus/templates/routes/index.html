@@ -1,90 +1,25 @@
 {% extends 'base.html' %} {% block title %}Маршруты{% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\routes.css' %}>
+    <div class="action right">
+        <a href={% url 'routes:add' %}>
+            <button class="add-btn btn-right">Додати маршрут</button>
+        </a>
+    </div>
     <div class="item-list">
-        <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
+        {% for route in routes %}
+            <div class="item">
+                <div class="item-main">
+                    <img class="item-img" src="{{ route.photo }}" onerror="this.src='{% static 'img\bus.jpg' %}';this.onerror='';">
+                </div>
+                <div class="item-title"><h2>{{ route.name }}</h2></div>
+                <div class="info">
+                    <span>{{ route.arrival.name }}</span>
+                    <span>{{ route.departure.name }}</span>
+                    <span><a href={% url 'routes:delete' route.id %} style="color:black">Видалити</a></span>
+
+                </div>
             </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
-    <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
-    <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
-    <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
-    <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
-    <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
-    <div class="item">
-            <div class="item-main">
-                <img class="item-img"
-                     src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                     alt="">
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}

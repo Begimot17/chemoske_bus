@@ -1,186 +1,28 @@
 {% extends 'base.html' %} {% block title %}Рейсы{% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\flights.css' %}>
+    <div class="action right">
+        <a href={% url 'flights:add' %}>
+            <button class="add-btn btn-right">Додати рейс</button>
+        </a>
+    </div>
     <div class="item-list">
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
+        {% for trip in trips %}
+            <div class="item">
+             <div class="item-main"><img class="item-img" src="{{ trip.photo }}" onerror="this.src='{% static 'img\bus.jpg' %}';this.onerror='';">
                 <div class="control">
                     <botton>Контроль рейсу</botton>
                 </div>
             </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
+            <div class="item-title"><h2>{{ trip.name }}</h2></div>
             <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
+                <span>{{ trip.price }}</span>
+                <span>{{ trip.popularity }}</span>
+                <span>{{ trip.occupancy }}</span>
+                <span>{{ trip.profitability }}</span>
+                <span>{{ trip.route.name }}</span>
             </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
             </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-main"><img class="item-img"
-                                        src="https://bipbap.ru/wp-content/uploads/2018/07/47e29f9fe96a1771642fb05ac8a8fd00_XL.jpg"
-                                        alt="">
-                <div class="control">
-                    <botton>Контроль рейсу</botton>
-                </div>
-            </div>
-            <div class="item-title"><h2>Название рейса</h2></div>
-            <div class="info">
-                <span>Вартість</span>
-                <span>Популярність</span>
-                <span>Час виїзду</span>
-                <span>Заповненість</span>
-                <span>Рентабельність</span>
-                <span>Час прибуття</span>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}

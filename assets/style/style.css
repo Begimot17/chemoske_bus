@@ -42,7 +42,8 @@ button.view{
 button.add-btn{
     width: 150px;
 }
-input{
+input,select{
+    margin-bottom: 5px;
     margin-right: 10px;
     width: 400px;
     height: 50px;
@@ -71,21 +72,41 @@ button:hover{
     background-color: #EE930B;
 }
 table {
-    width: 100%;
-    border: 1px solid #dddddd;
-    border-collapse: collapse;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+border-radius: 10px;
+border-spacing: 0;
+text-align: center;
 }
-
-table th {
-    text-align: center;
-    font-weight: bold;
-    padding: 5px;
-    background: #efefef;
-    border: 1px solid #dddddd;
+th {
+background: #BCEBDD;
+padding: 10px 20px;
 }
-
-table td {
-    text-align: center;
-    border: 1px solid #dddddd;
-    padding: 5px;
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+th:first-child, td:first-child {
+text-align: left;
+}
+th:first-child {
+border-top-left-radius: 10px;
+}
+th:last-child {
+border-top-right-radius: 10px;
+border-right: none;
+}
+td {
+padding: 10px 20px;
+background: #F8E391;
+}
+tr:last-child td:first-child {
+border-radius: 0 0 0 10px;
+}
+tr:last-child td:last-child {
+border-radius: 0 0 10px 0;
+}
+tr td:last-child {
+border-right: none;
 }

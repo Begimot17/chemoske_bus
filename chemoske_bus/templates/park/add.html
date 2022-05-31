@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Автопарк{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\park.css' %}>
+    <form action={% url 'park:reg' %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Добавить водителя</h3>
+        <div class="inputs">
+            <div>
+                <input class="form-control item" type="text" name="number" placeholder="Назва" required>
+                <input class="form-control item" type="number" name="mileage" placeholder="Километраж" required>
+                <select  class="form-control item" name="driver_1" id="" required>
+                <option value="" selected disabled hidden >Первый водитель</option>
+                    {% for driver in drivers %}
+                        <option value="{{ driver.id }}">{{ driver.name }}</option>
+                    {% endfor %}
+                </select>
+                <select  class="form-control item" name="driver_2" id="" required>
+                <option value="" selected disabled hidden >Второй водитель</option>
+                    {% for driver in drivers %}
+                        <option value="{{ driver.id }}">{{ driver.name }}</option>
+                    {% endfor %}
+                </select>
+                <select  class="form-control item" name="route" id="" required>
+                <option value="" selected disabled hidden >Маршрут</option>
+                    {% for route in routes %}
+                        <option value="{{ route.id }}">{{ route.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button type="submit">Добавить</button>
+
+    </form>
+{% endblock %}

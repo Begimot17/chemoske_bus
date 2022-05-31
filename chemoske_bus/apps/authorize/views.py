@@ -27,11 +27,11 @@ def reg(request):
 
 def log(request):
     user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-    if user is not None:
+    if user:
         login(request, user)
         return HttpResponseRedirect(reverse('authorize:index'))
     else: 
-        return HttpResponseRedirect(reverse('authorize/signin'))
+        return HttpResponseRedirect(reverse('authorize:signin'))
 
 
 def getusers(request):

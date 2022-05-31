@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block title %}Автопарк{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\flights.css' %}>
+    <form action={% url 'flights:reg' %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Добавить водителя</h3>
+        <div class="inputs">
+            <div>
+                <input class="form-control item" type="text" name="photo" placeholder="Url фото" required>
+                <input class="form-control item" type="text" name="name" placeholder="Назва рейсу" required>
+                <input class="form-control item" type="number" name="price" placeholder="Вартість" required>
+                <select  class="form-control item" name="route" required id="">
+                    <option value="" selected disabled hidden >Маршрут</option>
+                    {% for route in routes %}
+                        <option value="{{ route.id }}">{{ route.name }}</option>
+                    {% endfor %}
+                </select>
+            <input class="form-control item" type="text" name="popularity" placeholder="Популярность" required>
+            <input class="form-control item" type="text" name="occupancy" placeholder="Заповненість" required>
+            <input class="form-control item" type="text" name="profitability" placeholder="Рентабельність" required>
+            </div>
+        </div>
+        <button type="submit">Добавить</button>
+
+    </form>
+{% endblock %}

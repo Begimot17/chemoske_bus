@@ -2,13 +2,12 @@
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\park.css' %}>
     <div class="action right">
-      <button class="add-btn btn-right">Додати строку</button>
+     <a href={% url 'park:add' %}><button class="add-btn btn-right">Додати строку</button></a>
     </div>
 
     <table>
       <thead>
         <th>№</th>
-        <th>Назва</th>
         <th>Номер</th>
         <th>Водій №1</th>
         <th>Водій №2</th>
@@ -19,42 +18,19 @@
         <th>Нинішній рейс</th>
       </thead>
       <tbody>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
+            {% for park in parks %}
+                <tr>
+                    <td>{{ park.id }}</td>
+                    <td>{{ park.number }}</td>
+                    <td>{{ park.driver_1.name }}</td>
+                    <td>{{ park.driver_2.name }}</td>
+                    <td>{{ park.mileage }}</td>
+                    <td>{{ park.num_of_flights_perform }}</td>
+                    <td>{{ park.date_of_next }}</td>
+                    <td>{{ park.date_of_last }}</td>
+                    <td>{{ park.current_flight }}</td>
+                </tr>
+            {% endfor %}
       </tbody>
     </table>
 {% endblock %}
