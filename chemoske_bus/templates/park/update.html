@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block title %}Автопарк{% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\park.css' %}>
+    <form action={% url 'park:upd' fleet.id %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Редагувати автопарк</h3>
+        <div class="inputs">
+            <div>
+            <div><label for="">Назва</label></div>
+                <input class="form-control item" type="text" name="number" value="{{ fleet.number }}" placeholder="Назва" required>
+                <div><label for="">Кілометраж</label></div>
+                <input class="form-control item" type="number" name="mileage" value="{{ fleet.mileage }}" placeholder="Кілометраж" required>
+                <div><label for="">Перший водій</label></div>
+                <select class="form-control item" name="driver_1" id="" required>
+                <option value="" disabled hidden >Перший водій</option>
+                    {% for driver in drivers %}
+                        {% if driver.id == fleet.driver_1.id %}
+                            <option selected value="{{ driver.id }}">{{ driver.name }}</option>
+                            {% else %}
+                            <option value="{{ driver.id }}">{{ driver.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        <div><div><label for="">Другий водій</label></div>
+                <select class="form-control item" name="driver_2" id="" required>
+                <option value="" disabled hidden >Другий водій</option>
+                    {% for driver in drivers %}
+                        {% if driver.id == fleet.driver_2.id %}
+                            <option selected value="{{ driver.id }}">{{ driver.name }}</option>
+                            {% else %}
+                            <option value="{{ driver.id }}">{{ driver.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <div><label for="">Маршрут</label></div>
+                <select class="form-control item" name="route" id="" required>
+                <option value="" disabled hidden >Маршрут</option>
+                    {% for route in routes %}
+                        {% if route.id == fleet.route.id %}
+                            <option selected value="{{ route.id }}">{{ route.name }}</option>
+                            {% else %}
+                            <option value="{{ route.id }}">{{ route.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></div>
+
+            </div>
+     <button type="submit">Редагувати</button>
+        </div>
+
+
+    </form>
+{% endblock %}

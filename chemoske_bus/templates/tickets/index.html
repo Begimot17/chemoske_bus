@@ -1,24 +1,27 @@
-{% extends 'base.html' %} {% block title %}Билеты{% endblock %}
+{% extends 'base.html' %} {% block title %}Квитки{% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\tickets.css' %}>
     <div class="action right">
-      <button class="add-btn btn-right">Додати строку</button>
+    <a href={% url 'tickets:add' %}>
+      <button class="add-btn btn-right">Додати рядок</button>
+    </a>
     </div>
 
     <table>
       <thead>
         <th>№</th>
-        <th>ФІО клієнта</th>
-        <th>Місце квитка у салоні</th>
-        <th>ID загран паспорта</th>
+        <th>ПІБ клієнта</th>
+        <th>Місце квиток у салоні</th>
         <th>Контактна інформація</th>
         <th>Назва рейсу квитка</th>
-        <th>Час початку рейсу</th>
-        <th>Час закінченя рейсу</th>
+        <th>Годинка початку рейсу</th>
+        <th>Годинка завершення рейсу</th>
         <th>Автобус</th>
         <th>Вартість</th>
-        <th>Степінь  комфорту</th>
+        <th>Степінь комфорту</th>
         <th>Кількість проходження митних КПП</th>
+        <th></th>
+        <th></th>
       </thead>
       <tbody>
          {% for ticket in tickets %}
@@ -27,13 +30,16 @@
                     <td>{{ ticket.name }}</td>
                     <td>{{ ticket.num_seat }}</td>
                     <td>{{ ticket.contact_info }}</td>
-                    <td>{{ ticket.trip }}</td>
-                    <td>{{ ticket.fleet }}</td>
-                    <td>{{ ticket.date_of_next }}</td>
-                    <td>{{ ticket.date_of_last }}</td>
-                    <td>{{ ticket.bus }}</td>
+                    <td>{{ ticket.trip.name }}</td>
+
+                    <td>{{ ticket.depar_time }}</td>
+                    <td>{{ ticket.arrival_time }}</td>
+                    <td>{{ ticket.fleet.driver_1.bus.name }}</td>
                     <td>{{ ticket.price }}</td>
-                    <td>{{ ticket.current_flight }}</td>
+                    <td>{{ ticket.degree_of_comf }}</td>
+                    <td>{{ ticket.num_of_custom }}</td>
+                    <td><a href={% url 'tickets:update' ticket.id %} style="color:black">Редагувати</a></td>
+                    <td><a href={% url 'tickets:delete' ticket.id %} style="color:black">Удалити</a></td>
                 </tr>
             {% endfor %}
       </tbody>

@@ -38,3 +38,25 @@ def reg(request):
                                    )
     profile.save()
     return HttpResponseRedirect(reverse('park:index'))
+def update(request,id):
+    fleet=Fleet.objects.get(id=id)
+    a = Driver.objects.all()
+    b = Route.objects.all()
+    config = {
+        'fleet': fleet,
+        'drivers': a,
+        'routes': b
+    }
+    return render(request, 'park/update.html',config)
+def upd(request,id):
+    fleet = Fleet.objects.get(id=id)
+    fleet.number=request.POST['number']
+    fleet.driver_1=Driver.objects.get(id=request.POST['driver_1'])
+    fleet.driver_2=Driver.objects.get(id=request.POST['driver_2'])
+    fleet.route=Route.objects.get(id=request.POST['route'])
+    fleet.mileage = request.POST['mileage']
+    fleet.save()
+    return HttpResponseRedirect(reverse('park:index'))
+def delete(request, id):
+    Fleet.objects.get(id=id).delete()
+    return HttpResponseRedirect(reverse('park:index'))

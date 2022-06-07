@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Анализ{% endblock %}
+{% extends 'base.html' %} {% block title %}Аналіз{% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\analysis.css' %}>
     <script>
@@ -7,15 +7,15 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Год', 'Россия', 'США'],
-                ['1860', 1.3, 70],
-                ['1885', 2000, 3120],
-                ['1901', 12170, 9920]
+                ['Назва рейсу', 'Прибуток', 'Витрати'],
+                ['Київ-Гамбург', 25000, 12000],
+                ['Київ-Гданськ', 23000, 9000],
+                ['Київ-Варшава', 27000, 10000],
+                ['Київ-Познань', 19000, 8000],
+                ['Київ-Париж', 34000, 17000],
+                ['Київ-Берлін', 30000, 15000]
             ]);
             var options = {
-                title: 'Добыча нефти',
-                hAxis: {title: 'Год'},
-                vAxis: {title: 'Тыс. тонн'}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById('oil1'));
             chart.draw(data, options);
@@ -27,17 +27,17 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Год', 'Россия', 'США'],
-                ['1860', 1.3, 70],
-                ['1885', 2000, 3120],
-                ['1901', 12170, 9920]
+                ['Країна', 'Кількість рейсів'],
+                ['Німечина', 132],
+                ['Італія', 120],
+                ['Іспанія', 115],
+                ['Франція', 119],
+                ['Португалія', 94],
+                ['Нідерланди', 85]
             ]);
             var options = {
-                title: 'Добыча нефти',
-                hAxis: {title: 'Год'},
-                vAxis: {title: 'Тыс. тонн'}
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById('oil2'));
+            var chart = new google.visualization.PieChart(document.getElementById('oil2'));
             chart.draw(data, options);
         }
     </script>
@@ -47,15 +47,15 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Год', 'Россия', 'США'],
-                ['1860', 1.3, 70],
-                ['1885', 2000, 3120],
-                ['1901', 12170, 9920]
+                ['Назва рейсу', 'Кількість клієнтів'],
+                ['Київ-Гамбург', 34],
+                ['Київ-Гданськ', 42],
+                ['Київ-Варшава', 15],
+                ['Київ-Познань', 25],
+                ['Київ-Париж', 39],
+                ['Київ-Берлін', 37]
             ]);
             var options = {
-                title: 'Добыча нефти',
-                hAxis: {title: 'Год'},
-                vAxis: {title: 'Тыс. тонн'}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById('oil3'));
             chart.draw(data, options);
@@ -67,15 +67,15 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Год', 'Россия', 'США'],
-                ['1860', 1.3, 70],
-                ['1885', 2000, 3120],
-                ['1901', 12170, 9920]
+                ['Водій', 'Зайняті зміни', 'Вільні зміни'],
+                ['Кінів А.А', 3,4],
+                ['Тар І.А', 2,2],
+                ['Комороф К.Ф', 1,4],
+                ['Котів А.Б', 3,1],
+                ['Еліт Б.Ю', 3,2],
+                ['Зембей А.Ю', 3,3]
             ]);
             var options = {
-                title: 'Добыча нефти',
-                hAxis: {title: 'Год'},
-                vAxis: {title: 'Тыс. тонн'}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById('oil4'));
             chart.draw(data, options);
@@ -83,19 +83,19 @@
     </script>
     <div class="item-list">
         <div>
-            <h2>Таблица</h2>
+            <h2>Гістограма рентабельності рейсів</h2>
             <div class="diag" id="oil1"></div>
         </div>
         <div>
-            <h2>Таблица</h2>
+            <h2>Аналіз популярності маршрутів</h2>
             <div class="diag" id="oil2"></div>
         </div>
         <div>
-            <h2>Таблица</h2>
+            <h2>Гістограма заповненості рейсів</h2>
             <div class="diag" id="oil3"></div>
         </div>
         <div>
-            <h2>Таблица</h2>
+            <h2>Аналіз завантаженості водіїв</h2>
             <div class="diag" id="oil4"></div>
         </div>
     </div>

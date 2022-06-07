@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block title %} Водії {% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\drivers.css' %}>
-    <form action={% url 'drivers:reg' %} method='POST'>
+    <form action={% url 'drivers:upd' driver.id %} method='POST'>
         {% csrf_token %}
         <div></div>
-        <h3>Додати водія</h3>
+        <h3>Редагувати водія</h3>
         <div class="inputs">
             <div><label for="">Ім'я</label><input class="form-control item" type="text" name="name" value="{{ driver.name }}" placeholder="Ім'я" required>
                 <label for="">Категорія прав</label><input class="form-control item" type="text" name="category" value="{{ driver.category }}" placeholder="Категорія прав" required>
@@ -28,7 +28,7 @@
                 <label for="">Ступінь надійності</label><input class="form-control item" type="text" name="degree_of_reliab" value="{{ driver.degree_of_reliab }}" placeholder="Ступінь надійності" required>
             </div>
         </div>
-        <button type="submit">Додати</button>
+        <button type="submit">Редагувати</button>
 
     </form>
 {% endblock %}

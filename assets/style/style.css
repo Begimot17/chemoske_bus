@@ -72,6 +72,7 @@ button:hover{
     background-color: #EE930B;
 }
 table {
+    max-width: 100%;
 font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 font-size: 14px;
 border-radius: 10px;

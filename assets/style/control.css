@@ -7,6 +7,9 @@ button[name='control']{
     height: 25px;
     background-color: green;
 }
+button.num:hover{
+    background-color: blue;
+}
 .big{
     border-radius: 100%;
     width: 50px;
@@ -51,3 +54,13 @@ button[name='control']{
             background-color: #DFB727;
             padding: 15px;
         }
+.small{
+    width: 10px;
+    height: 10px;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}

@@ -1,15 +1,15 @@
-{% extends 'base.html' %} {% block title %}Водители{% endblock %}
+{% extends 'base.html' %} {% block title %} Водії {% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\drivers.css' %}>
     <div class="action right">
-        <a href={% url 'drivers:add' %}><button class="add-btn btn-right">Додати строку</button></a>
+        <a href={% url 'drivers:add' %}><button class="add-btn btn-right">Додати рядок</button></a>
 
     </div>
 
     <table>
       <thead>
         <th>№</th>
-        <th>ФІО</th>
+        <th>ПІБ</th>
         <th>Категорія</th>
         <th>Стаж</th>
         <th>Кількість штрафів</th>
@@ -18,20 +18,24 @@
         <th>ЗП</th>
         <th>Степінь завантаженості</th>
         <th>Степінь надійності</th>
+        <th></th>
+        <th></th>
       </thead>
       <tbody>
         {% for driver in drivers %}
                 <tr>
-                    <td>{{ driver.id }}</td>
-                    <td>{{ driver.name }}</td>
+                    <td>{{driver.id}}</td>
+                    <td>{{driver.name}}</td>
                     <td>{{ driver.category }}</td>
                     <td>{{ driver.experience }}</td>
                     <td>{{ driver.num_of_fines }}</td>
                     <td>{{ driver.num_of_flights }}</td>
-                    <td>{{ driver.bus.name }}</td>
+                    <td>{{driver.bus.name}}</td>
                     <td>{{ driver.salary }}</td>
                     <td>{{ driver.degree_of_cong }}</td>
                     <td>{{ driver.degree_of_reliab }}</td>
+                    <td><a href={% url 'drivers:update' driver.id %} style="color:black">Редагувати</a></td>
+                    <td><a href={% url 'drivers:delete' driver.id %} style="color:black">Удалити</a></td>
                 </tr>
             {% endfor %}
       </tbody>

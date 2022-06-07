@@ -16,7 +16,6 @@ button[name='flights']{
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
-
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
@@ -26,12 +25,11 @@ button[name='flights']{
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
 
-.item .info span {
+.item .info div {
     border-radius: 5px;
     background-color: #DFB727;
     padding: 5px;
@@ -42,7 +40,12 @@ button[name='flights']{
     background-color: #DFB727;
     padding: 15px;
 }
+form {
 
+  width  : 740px;
+  margin : 0 auto;
+}
+.inputs{    display: flex;}
 .item .item-title {
     border-radius: 5px;
     background-color: #DFB727;

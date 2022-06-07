@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Рейсы{% endblock %}
+{% extends 'base.html' %} {% block title %}Рейси{% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\flights.css' %}>
     <div class="action right">
@@ -9,18 +9,19 @@
     <div class="item-list">
         {% for trip in trips %}
             <div class="item">
-             <div class="item-main"><img class="item-img" src="{{ trip.photo }}" onerror="this.src='{% static 'img\bus.jpg' %}';this.onerror='';">
+             <div class="item-main"><img class="item-img" src="{{ trip.photo }}" onerror="this.src='{% static 'img\bus.jpg' %} ';this.onerror='';">
                 <div class="control">
                     <botton>Контроль рейсу</botton>
                 </div>
             </div>
-            <div class="item-title"><h2>{{ trip.name }}</h2></div>
+            <div class="item-title"><h2>{{trip.name}}</h2></div>
             <div class="info">
-                <span>{{ trip.price }}</span>
-                <span>{{ trip.popularity }}</span>
-                <span>{{ trip.occupancy }}</span>
-                <span>{{ trip.profitability }}</span>
-                <span>{{ trip.route.name }}</span>
+                <div><strong>Ціна:</strong><br><span>{{trip.price}}</span></div>
+                <div><strong>Популярність:</strong><br><span>{{trip.popularity}}</span></div>
+                <div><strong>Заповненість:</strong><br><span>{{trip.occupancy}}</span></div>
+                <div><strong>Рентабельність:</strong><br><span>{{trip.profitability}}</span></div>
+                <div><strong>Назва рейсу:</strong><br><span>{{trip.route.name}}</span></div>
+                <div><a href={% url 'flights:update' trip.id %} style="color:black">Редагувати</a><br><a href={% url 'flights:delete' trip.id %} style="color:black">Удалити</a></div>
             </div>
             </div>
         {% endfor %}

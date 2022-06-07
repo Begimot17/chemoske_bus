@@ -1,4 +1,10 @@
 button[name='tickets'] {
             background-color: #EE930B;
         }
+form {
+
+  width  : 740px;
+  margin : 0 auto;
+}
+.inputs{    display: flex;}
 

@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block title %} Маршрути {% endblock %}
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\routes.css' %}>
-    <form action={% url 'routes:reg' %} method='POST'>
+    <form action={% url 'routes:upd' route.id %} method='POST'>
         {% csrf_token %}
         <div></div>
-        <h3>Додати маршрут</h3>
+        <h3>Редагувати маршрут</h3>
         <div class="inputs">
             <div>
                 <div><label for="">Url фото</label></div>
@@ -35,7 +35,7 @@
                 </select>
             </div>
         </div>
-        <button type="submit">Додати</button>
+        <button type="submit">Редагувати</button>
 
     </form>
 {% endblock %}
