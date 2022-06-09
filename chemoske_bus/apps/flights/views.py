@@ -1,4 +1,5 @@
 from .models import *
+from control.models import *
 from routes.models import *
 from datetime import date
 from django.shortcuts import render
@@ -7,8 +8,20 @@ from django.http import HttpResponseRedirect
 
 def index(request):
     b = Trip.objects.all()
+    c = Control.objects.all()
     config = {
-        'trips': b
+        'trips': b,
+        'controls': c
+    }
+    return render(request, 'flights/index.html',config)
+
+def search(request):
+    a = Control.objects.get(id=request.POST['control'])
+    b = Trip.objects.all(control=a)
+    c = Control.objects.all()
+    config = {
+        'trips': b,
+        'controls': c
     }
     return render(request, 'flights/index.html',config)
 
@@ -24,7 +37,6 @@ def reg(request):
                                      name=request.POST['name'],
                                   price=request.POST['price'],
                                   popularity=request.POST['popularity'],
-                                  occupancy=request.POST['occupancy'],
                                      profitability=request.POST['profitability'],
                                      route=Route.objects.get(id=request.POST['route'])
                                      )
@@ -40,10 +52,10 @@ def update(request,id):
     return render(request, 'flights/update.html',config)
 def upd(request,id):
     trip = Trip.objects.get(id=id)
+    trip.name = request.POST['name']
     trip.photo=request.POST['photo']
     trip.price = request.POST['price']
     trip.popularity = request.POST['popularity']
-    trip.occupancy = request.POST['occupancy']
     trip.profitability = request.POST['profitability']
     trip.route = Route.objects.get(id=request.POST['route'])
     trip.save()

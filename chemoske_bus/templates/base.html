@@ -8,6 +8,7 @@
   <link rel="stylesheet" href={% static 'style\style.css' %}/>
     <script src={% static 'js\loader.js' %}></script>
     <script src={% static 'js\jquery.js' %}></script>
+    <script src={% static 'js\script.js' %}></script>
 
   <meta charset="UTF-8" />
   
@@ -23,7 +24,7 @@
     <div class="nav-2">
       <div></div>
       <div>
-          <a href={% url 'control:index' %}><button class="nav-btn view" name="control">Контроль рейсів</button></a>
+          <a><button class="nav-btn view" name="control">Контроль рейсів</button></a>
           <a href={% url 'flights:index' %}><button class="nav-btn view" name="flights">Рейси</button></a>
           <a href={% url 'park:index' %}><button class="nav-btn view" name="park">Автопарк</button></a>
           <a href={% url 'drivers:index' %}><button class="nav-btn view" name="drivers">Водії</button></a>

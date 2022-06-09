@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block title %} Маршрути {% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\control_form.css' %}>
+
+    <form action={% url 'control:reg' trip.id %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Створення контролю рейсу</h3>
+        <div class="inputs">
+
+                <div>
+                    <div><label for="">Час виїзду</label></div>
+                    <input class="form-control item" type="datetime-local" name="depar_time" value="{{ control.depar_time }}"
+                           placeholder="Час виїзду" required>
+                    <div><label for="">Час прибуття</label></div>
+                    <input class="form-control item" type="datetime-local" name="arrival_time" value="{{ control.arrival_time }}"
+                           placeholder="Час прибуття" required>
+                    <div><label for="">Степінь комфорту</label></div>
+                    <input class="form-control item" type="text" name="degree_of_comf" value="{{ control.degree_of_comf }}"
+                           placeholder="Степінь комфорту" required>
+                </div>
+                <div>
+
+                    <div><label for="">Кількість проходження митних КПП</label></div>
+                    <input class="form-control item" type="number" name="num_of_custom" value="{{ control.num_of_custom }}"
+                           placeholder="Кількість проходження митних КПП" required>
+                    <div><label for="">Номер автопарку</label></div>
+                    <select class="form-control item" name="fleet" id="">
+                        <option value="" selected disabled hidden>Номер автопарку</option>
+                        {% for fleet in fleets %}
+                            {% if fleet.id == control.fleet.id %}
+                                <option selected value="{{ fleet.id }}">{{ fleet.number }}</option>
+                            {% else %}
+                                <option value="{{ fleet.id }}">{{ fleet.number }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+        </div>
+    <button type="submit">Створити</button>
+
+
+    </form>
+{% endblock %}

@@ -18,6 +18,8 @@
 
                 <input class="form-control" type="number" name="price" value="{{ trip.price }}" placeholder="Вартість"
                        required>
+            </div>
+            <div>
                 <div><label for="">Маршрут</label></div>
 
                 <select class="form-control" name="route" required id="">
@@ -30,16 +32,10 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-            </div>
-            <div>
                 <div><label for="">Популярність</label></div>
 
                 <input class="form-control" type="text" name="popularity" value="{{ trip.popularity }}"
                        placeholder="Популярність" required>
-                <div><label for="">Заповненість</label></div>
-
-                <input class="form-control" type="text" name="occupancy" value="{{ trip.occupancy }}"
-                       placeholder="Заповненість" required>
                 <div><label for="">Рентабельність</label></div>
 
                 <input class="form-control" type="text" name="profitability" value="{{ trip.profitability }}"

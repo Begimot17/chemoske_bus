@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %} Маршрути {% endblock %}
+{% block content %} {% load static %}
+    <link rel="stylesheet" href={% static 'style\control_form.css' %}>
+    <form action={% url 'control:add_ticket' control.id %} method='POST'>
+        {% csrf_token %}
+        <div></div>
+        <h3>Купівля білету</h3>
+        <div class="inputs">
+            <div>
+                <div><label for="">ПІБ клієнта</label></div>
+                <input class="form-control item" type="text" name="client_name"
+                       placeholder="ПІБ клієнта" required>
+                <input class="form-control item" type="text" name="contact_info"
+                       placeholder="Контактна інформація" required>
+                <div><label for="">Рейс</label></div>
+                <input type="text" disabled name="name" value="{{ control.trip.name }}">
+
+                <div><label for="">Место</label></div>
+                <input type="text" disabled name="name" value="{{ seat.name }}">
+                <input type="text" style="display: none;" name="seat" value="{{ seat.id }}">
+                <div><label for="">Ціна</label></div>
+                <input type="text" disabled name="name" value="{{ control.trip.price }}">
+
+
+            </div>
+        </div>
+    <button type="submit">Купити</button>
+    </form>
+{% endblock %}

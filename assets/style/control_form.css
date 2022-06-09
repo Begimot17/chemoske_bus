@@ -1,0 +1,9 @@
+button[name='control']{
+        background-color: #EE930B;
+    }
+form {
+
+  width  : 740px;
+  margin : 0 auto;
+}
+.inputs{    display: flex;}

@@ -42,11 +42,11 @@
             <div>
 
                 <div><label for="">Година початку рейсу</label></div>
-                <input class="form-control item" type="date" name="depar_time"
-                       value="{{ ticket.depar_time|date:"Y-m-d" }}" placeholder="Година початку рейсу" required>
+                <input class="form-control item" type="time" name="depar_time"
+                       value="{{ ticket.depar_time }}" placeholder="Година початку рейсу" required>
                 <div><label for="">Час завершення рейсу</label></div>
-                <input class="form-control item" type="date" name="arrival_time"
-                       value="{{ ticket.arrival_time|date:"Y-m-d" }}" placeholder="Час завершення рейсу" required>
+                <input class="form-control item" type="time" name="arrival_time"
+                       value="{{ ticket.arrival_time }}" placeholder="Час завершення рейсу" required>
                 <div><label for="">Вартість</label></div>
                 <input class="form-control item" type="number" name="price" value="{{ ticket.price }}"
                        placeholder="Вартість" required>

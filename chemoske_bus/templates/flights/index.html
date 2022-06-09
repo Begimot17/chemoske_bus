@@ -11,16 +11,15 @@
             <div class="item">
              <div class="item-main"><img class="item-img" src="{{ trip.photo }}" onerror="this.src='{% static 'img\bus.jpg' %} ';this.onerror='';">
                 <div class="control">
-                    <botton>Контроль рейсу</botton>
+                    <botton><a href={% url 'control:index' trip.id %} style="color:black">Контроль рейсу</a></botton>
                 </div>
             </div>
             <div class="item-title"><h2>{{trip.name}}</h2></div>
             <div class="info">
                 <div><strong>Ціна:</strong><br><span>{{trip.price}}</span></div>
                 <div><strong>Популярність:</strong><br><span>{{trip.popularity}}</span></div>
-                <div><strong>Заповненість:</strong><br><span>{{trip.occupancy}}</span></div>
                 <div><strong>Рентабельність:</strong><br><span>{{trip.profitability}}</span></div>
-                <div><strong>Назва рейсу:</strong><br><span>{{trip.route.name}}</span></div>
+                <div><strong>Маршрут:</strong><br><span>{{trip.route.name}}</span></div>
                 <div><a href={% url 'flights:update' trip.id %} style="color:black">Редагувати</a><br><a href={% url 'flights:delete' trip.id %} style="color:black">Удалити</a></div>
             </div>
             </div>

@@ -7,46 +7,73 @@
         <h3>Редагувати автопарк</h3>
         <div class="inputs">
             <div>
-            <div><label for="">Назва</label></div>
-                <input class="form-control item" type="text" name="number" value="{{ fleet.number }}" placeholder="Назва" required>
+                <div><label for="">Назва</label></div>
+                <input class="form-control item" type="text" name="number" value="{{ fleet.number }}"
+                       placeholder="Назва" required>
                 <div><label for="">Кілометраж</label></div>
-                <input class="form-control item" type="number" name="mileage" value="{{ fleet.mileage }}" placeholder="Кілометраж" required>
+                <input class="form-control item" type="number" name="mileage" value="{{ fleet.mileage }}"
+                       placeholder="Кілометраж" required>
                 <div><label for="">Перший водій</label></div>
                 <select class="form-control item" name="driver_1" id="" required>
-                <option value="" disabled hidden >Перший водій</option>
+                    <option value="" disabled hidden>Перший водій</option>
                     {% for driver in drivers %}
                         {% if driver.id == fleet.driver_1.id %}
                             <option selected value="{{ driver.id }}">{{ driver.name }}</option>
-                            {% else %}
+                        {% else %}
                             <option value="{{ driver.id }}">{{ driver.name }}</option>
                         {% endif %}
                     {% endfor %}
                 </select>
-            </div>
-        <div><div><label for="">Другий водій</label></div>
+            <div><label for="">Другий водій</label></div>
                 <select class="form-control item" name="driver_2" id="" required>
-                <option value="" disabled hidden >Другий водій</option>
+                    <option value="" disabled hidden>Другий водій</option>
                     {% for driver in drivers %}
                         {% if driver.id == fleet.driver_2.id %}
                             <option selected value="{{ driver.id }}">{{ driver.name }}</option>
-                            {% else %}
+                        {% else %}
                             <option value="{{ driver.id }}">{{ driver.name }}</option>
                         {% endif %}
                     {% endfor %}
                 </select>
-                <div><label for="">Маршрут</label></div>
+            <div><label for="">Маршрут</label></div>
                 <select class="form-control item" name="route" id="" required>
-                <option value="" disabled hidden >Маршрут</option>
+                    <option value="" disabled hidden>Маршрут</option>
                     {% for route in routes %}
                         {% if route.id == fleet.route.id %}
                             <option selected value="{{ route.id }}">{{ route.name }}</option>
-                            {% else %}
+                        {% else %}
                             <option value="{{ route.id }}">{{ route.name }}</option>
                         {% endif %}
                     {% endfor %}
-                </select></div>
+                </select>
+            </div>
+            <div>
+
+
+                <div><label for="">Кількість виконаних рейсів</label></div>
+                <input class="form-control item" type="number" name="num_of_flights_perform" value="{{ fleet.num_of_flights_perform }}"
+                       placeholder="Кількість виконаних рейсів" required>
+                <div><label for="">Дата наступного огляду</label></div>
+                <input class="form-control item" type="date" name="depar_time"
+                       value="{{ fleet.date_of_next|date:"Y-m-d" }}" placeholder="Дата наступного огляду" required>
+                <div><label for="">Дата останнього тих огляду</label></div>
+                <input class="form-control item" type="date" name="arrival_time"
+                       value="{{ fleet.date_of_last|date:"Y-m-d" }}" placeholder="Час завершення рейсу" required>
+                <div><label for="">Нинішній рейс</label></div>
+                <select class="form-control item" name="current_flight" id="" required>
+                    <option value="" disabled hidden>Нинішній рейс</option>
+                    {% for trip in trips %}
+                        {% if trip.id == fleet.current_flight.id %}
+                            <option selected value="{{ trip.id }}">{{ trip.name }}</option>
+                        {% else %}
+                            <option value="{{ trip.id }}">{{ trip.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
 
             </div>
+
+        </div>
      <button type="submit">Редагувати</button>
         </div>
 

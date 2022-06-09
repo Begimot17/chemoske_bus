@@ -3,15 +3,15 @@
 <link rel="stylesheet" href={% static 'style\control.css' %}>
     <div class="item-list">
         <div class="info">
-                <span>Рейс Київ - Гамбург</span>
-                <span>Зайняті місця - 0 <button class="red num small"></button></span>
-                <span>Вільні місця - 44 <button class="green num small"></button></span>
-                <span>Водії -Владімір  Фо Ігор Тар</span>
-                <span>2.07. 6:00 - 3.07. 9:00</span>
+                <span>Рейс {{ control.trip.name }}</span>
+                <span>Зайняті місця - {{ on }} <button class="red num small"></button></span>
+                <span>Вільні місця - {{ off }} <button class="green num small"></button></span>
+                <span>Водії -{{ control.fleet.driver_1.name }};{{ control.fleet.driver_2.name }}</span>
+                <span>{{ control.depar_time }} - {{ control.arrival_time }}</span>
         </div>
         <div class="full-info">
             <div>
-                <div><span>Рейс: Київ - Гамбург</span></div>
+                <div><span>Рейс: {{ control.name }}</span></div>
                 <div><span>Статус місце знаходження:Німеччина, округ Берлін</span></div>
                 <div><span>Час проходження останього КПП:20:48 03.04.2021</span></div>
 
@@ -20,30 +20,22 @@
         </div>
         <div class="autobus">
       <div class="str">
-        <div><button class="num big"></button></div>
+        <div><button id="driver_2" onclick="alert('Водитель-{{ control.fleet.driver_2.name }} Категорія-{{ control.fleet.driver_2.category }}')" class="num big"></button></div>
         <div>
-          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button></div>
-          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button></div>
+          <div><div>{% for x in control.num_seat.all %} {% if x.name <= 11 %} {% if x.status != 'on' %}
+              <form style="display: inline" action={% url 'control:buy' control.id %} method='POST'>
+                  {% csrf_token %}<button type="submit" value="{{ x.id }}" name="seat" class="num"></button></form>{% else %}<button class="num red"></button>{% endif %} {% endif %}{% endfor %} </div> <div>{% for x in control.num_seat.all %} {% if x.name > 11 and x.name <= 22 %}{% if x.status != 'on' %}<form style="display: inline" action={% url 'control:buy' control.id %} method='POST'>
+                  {% csrf_token %}<button type="submit" value="{{ x.id }}" name="seat" class="num"></button></form>{% else %}<button class="num red"></button>{% endif %} {% endif %}{% endfor %}</div></div>
         </div>
       </div>
       <div class="str">
-        <div><button class="num big"></button></div>
+        <div><button id="driver_1" onclick="alert('Водитель-{{ control.fleet.driver_1.name }} Категорія-{{ control.fleet.driver_1.category }}')" class="num big"></button></div>
         <div>
-          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button></div>
-          <div><button class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button><button class="num"></button><button
-              class="num"></button><button class="num"></button></div>
+          <div><div>{% for x in control.num_seat.all %} {% if x.name > 22 and x.name <= 33 %}{% if x.status != 'on' %}<form style="display: inline" action={% url 'control:buy' control.id %} method='POST'>
+                  {% csrf_token %}<button type="submit" value="{{ x.id }}" name="seat" class="num"></button></form>{% else %}<button class="num red"></button>{% endif %} {% endif %}{% endfor %} </div> <div>{% for x in control.num_seat.all %} {% if x.name > 33 and x.name <= 44 %}{% if x.status != 'on' %}<form style="display: inline" action={% url 'control:buy' control.id %} method='POST'>
+                  {% csrf_token %}<button type="submit" value="{{ x.id }}" name="seat" class="num"></button></form>{% else %}<button class="num red"></button>{% endif %} {% endif %}{% endfor %}</div></div>
         </div>
+      </div>
 
       </div>
     </div>
@@ -65,17 +57,17 @@
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>Київ - Гамбург</td>
-          <td>44</td>
-          <td>1500 грн</td>
-          <td>Висока</td>
-          <td>50%</td>
-          <td>Висока</td>
-          <td>6:00 2.07.21</td>
-          <td>9:00 3.07.21</td>
-          <td>3/5</td>
-          <td>5</td>
+          <td>{{ control.id }}</td>
+          <td>{{ control.trip.name }}</td>
+          <td>{{ all }}</td>
+          <td>{{ control.trip.price }}</td>
+          <td>{{ control.trip.popularity }}</td>
+          <td>{{ on }}</td>
+          <td>{{ control.trip.profitability }}</td>
+          <td>{{ control.depar_time }}</td>
+          <td>{{ control.arrival_time }}</td>
+          <td>{{ control.degree_of_comf }}</td>
+          <td>{{ control.num_of_custom }}</td>
           <td>2</td>
         </tr>
       </tbody>

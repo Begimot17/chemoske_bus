@@ -2,7 +2,7 @@
 {% block content %} {% load static %}
     <link rel="stylesheet" href={% static 'style\park.css' %}>
     <div class="action right">
-     <a href={% url 'park:add' %}><button class="add-btn btn-right">Додати рядок</button></a>
+     <a href={% url 'park:add' %}><button class="add-btn btn-right">Додати автопарк</button></a>
     </div>
 
     <table>
@@ -32,7 +32,7 @@
                     <td>{{park.num_of_flights_perform}}</td>
                     <td>{{ park.date_of_next }}</td>
                     <td>{{park.date_of_last }}</td>
-                    <td>{{park.current_flight}}</td>
+                    <td>{{park.current_flight.name}}</td>
                     <td><a href={% url 'park:update' park.id %} style="color:black">Редагувати</a></td>
                     <td><a href={% url 'park:delete' park.id %} style="color:black">Удалити</a></td>
                 </tr>
