@@ -16,9 +16,9 @@
             </div>
             <div class="item-title"><h2>{{trip.name}}</h2></div>
             <div class="info">
-                <div><strong>Ціна:</strong><br><span>{{trip.price}}</span></div>
+                <div><strong>Ціна:</strong><br><span>{{trip.price}} грн</span></div>
                 <div><strong>Популярність:</strong><br><span>{{trip.popularity}}</span></div>
-                <div><strong>Рентабельність:</strong><br><span>{{trip.profitability}}</span></div>
+                <div><strong>Рентабельність:</strong><br><span>{{trip.profitability}} грн</span></div>
                 <div><strong>Маршрут:</strong><br><span>{{trip.route.name}}</span></div>
                 <div><a href={% url 'flights:update' trip.id %} style="color:black">Редагувати</a><br><a href={% url 'flights:delete' trip.id %} style="color:black">Удалити</a></div>
             </div>

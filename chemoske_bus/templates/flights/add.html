@@ -9,14 +9,14 @@
         <div class="inputs">
             <div>
                 <div><label for="">Url фото</label></div>
-                <input class="form-control" type="text" name="photo" value="{{ trip.photo }}" placeholder="Url фото"
+                <input class="form-control" type="text" name="photo" value="{{ trip.photo }}" placeholder="www.domain.photo.jpg"
                        required>
                 <div><label for="">Назва рейсу</label></div>
                 <input class="form-control" type="text" name="name" value="{{ trip.name }}" placeholder="Назва рейсу"
                        required>
-                <div><label for="">Вартість</label></div>
+                <div><label for="">Вартість в грн</label></div>
 
-                <input class="form-control" type="number" name="price" value="{{ trip.price }}" placeholder="Вартість"
+                <input class="form-control" type="number" name="price" value="{{ trip.price }}" placeholder="1000 грн"
                        required>
             </div>
             <div>
@@ -34,10 +34,10 @@
                 </select>
                 <div><label for="">Популярність</label></div>
                 <input class="form-control" type="text" name="popularity" value="{{ trip.popularity }}"
-                       placeholder="Популярність" required>
+                       placeholder="2/5" required>
                 <div><label for="">Рентабельність</label></div>
 
-                <input class="form-control" type="text" name="profitability" value="{{ trip.profitability }}"
+                <input class="form-control" type="number" name="profitability" value="{{ trip.profitability }}"
                        placeholder="Рентабельність" required>
             </div>
         </div>

@@ -9,8 +9,8 @@
             <div><label for="">Ім'я</label><input class="form-control item" type="text" name="name" value="{{ driver.name }}" placeholder="Ім'я" required>
                 <label for="">Категорія прав</label><input class="form-control item" type="text" name="category" value="{{ driver.category }}" placeholder="Категорія прав" required>
                 <label for="">Стаж</label><input class="form-control item" type="text" name="experience" value="{{ driver.experience }}" placeholder="Стаж" required>
-            <label for="">Кількість штрафів</label><input class="form-control item" type="text" name="num_of_fines" value="{{ driver.num_of_fines }}" placeholder="Кількість штрафів" required>
-            <label for="">Кількість виконаних рейсів</label><input class="form-control item" type="text" name="num_of_flights" value="{{ driver.num_of_flights }}" placeholder="Кількість виконаних рейсів" required>
+            <label for="">Кількість штрафів</label><input class="form-control item" type="number" name="num_of_fines" value="{{ driver.num_of_fines }}" placeholder="Кількість штрафів" required>
+            <label for="">Кількість виконаних рейсів</label><input class="form-control item" type="number" name="num_of_flights" value="{{ driver.num_of_flights }}" placeholder="Кількість виконаних рейсів" required>
 
             </div>
             <div><label for="">Автобус</label><select class="form-control item" name="bus" id="">
@@ -22,10 +22,10 @@
                             <option value="{{ bus.id }}">{{ bus.name }}</option>
                         {% endif %}
                 {% endfor %}
-                </select><label for="">Зарплата</label><input class="form-control item" type="text" name="salary" value="{{ driver.salary }}" placeholder="Зарплата" required>
-                <label for="">Ступінь завантаженості</label><input class="form-control item" type="text" name="degree_of_cong" value="{{ driver.degree_of_cong }}" placeholder="Ступінь завантаженості"
+                </select><label for="">Зарплата в грн</label><input class="form-control item" type="text" name="salary" value="{{ driver.salary }}" placeholder="1000 грн" required>
+                <label for="">Степінь завантаженості</label><input class="form-control item" type="text" name="degree_of_cong" value="{{ driver.degree_of_cong }}" placeholder="Ступінь завантаженості"
                        required>
-                <label for="">Ступінь надійності</label><input class="form-control item" type="text" name="degree_of_reliab" value="{{ driver.degree_of_reliab }}" placeholder="Ступінь надійності" required>
+                <label for="">Степінь надійності</label><input class="form-control item" type="text" name="degree_of_reliab" value="{{ driver.degree_of_reliab }}" placeholder="Ступінь надійності" required>
             </div>
         </div>
         <button type="submit">Редагувати</button>

@@ -9,13 +9,13 @@
             <div>
                 <div><label for="">ПІБ клієнта</label></div>
                 <input class="form-control item" type="text" name="name" value="{{ ticket.name }}"
-                       placeholder="ПІБ клієнта" required>
+                       placeholder="Иванов Иван Иванович" required>
                 <div><label for="">Місце квитка біля салону</label></div>
                 <input class="form-control item" type="number" name="num_seat" value="{{ ticket.num_seat }}"
                        placeholder="Місце квитка біля салону" required>
                 <div><label for="">Контактна інформація</label></div>
                 <input class="form-control item" type="text" name="contact_info" value="{{ ticket.contact_info }}"
-                       placeholder="Контактна інформація" required>
+                       placeholder="+380977610273" required>
                 <div><label for="">Назва рейсу</label></div>
                 <select class="form-control item" name="trip" id="">
                     <option value="" selected disabled hidden>Назва рейсу</option>
@@ -49,10 +49,10 @@
                        value="{{ ticket.arrival_time }}" placeholder="Час завершення рейсу" required>
                 <div><label for="">Вартість</label></div>
                 <input class="form-control item" type="number" name="price" value="{{ ticket.price }}"
-                       placeholder="Вартість" required>
+                       placeholder="Вартість у грн" required>
                 <div><label for="">Степінь комфорту</label></div>
                 <input class="form-control item" type="text" name="degree_of_comf" value="{{ ticket.degree_of_comf }}"
-                       placeholder="Степінь комфорту" required>
+                       placeholder="2/5" required>
                 <div><label for="">Кількість проходження митних КПП</label></div>
                 <input class="form-control item" type="number" name="num_of_custom" value="{{ ticket.num_of_custom }}"
                        placeholder="Кількість проходження митних КПП" required></div>

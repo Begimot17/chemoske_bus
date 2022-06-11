@@ -20,8 +20,8 @@
         <th>Місце квиток у салоні</th>
         <th>Контактна інформація</th>
         <th>Назва рейсу квитка</th>
-        <th>Годинка початку рейсу</th>
-        <th>Годинка завершення рейсу</th>
+        <th>Година початку рейсу</th>
+        <th>Година завершення рейсу</th>
         <th>Номер автопарку</th>
         <th>Вартість</th>
         <th>Степінь комфорту</th>
@@ -39,7 +39,7 @@
                     <td>{{ ticket.control.depar_time }}</td>
                     <td>{{ ticket.control.arrival_time }}</td>
                     <td>{{ ticket.control.fleet.number }}</td>
-                    <td>{{ ticket.control.trip.price }}</td>
+                    <td>{{ ticket.control.trip.price }} грн</td>
                     <td>{{ ticket.control.degree_of_comf }}</td>
                     <td>{{ ticket.control.num_of_custom }}</td>
                 </tr>
