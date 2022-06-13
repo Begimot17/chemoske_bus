@@ -11,9 +11,9 @@
         </div>
         <div class="full-info">
             <div>
-                <div><span>Рейс: {{ control.name }}</span></div>
-                <div><span>Статус місце знаходження:Німеччина, округ Берлін</span></div>
-                <div><span>Час проходження останього КПП:20:48 03.04.2021</span></div>
+                <div><span>Рейс: {{ control.trip.name }}</span></div>
+                <div><span>Статус місце знаходження:{{ control.trip.route.arrival.name }}</span></div>
+                <div><span>Час проходження останього КПП:{{ control.arrival_time }}</span></div>
 
             </div>
 
